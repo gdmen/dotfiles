@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/gary/Code/financial/net_worth'
+let g:netrw_dirhist_2='/Users/gary/go/src/github.com/gdmen/delta/.git'
+let g:netrw_dirhist_3='/Users/gary/repositories/osrsquestcalc/data'
+let g:netrw_dirhist_4='/Users/gary/go/src/compteam/src/internal/config'
+let g:netrw_dirhist_5='/Users/gary/repositories/youtube_highlights/config'
+let g:netrw_dirhist_6='/Users/gary/repositories/youtube_highlights/_config'
+let g:netrw_dirhist_7='/Users/gary/repositories/mtest/internal/api'
