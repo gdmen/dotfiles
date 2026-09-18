@@ -2,12 +2,13 @@ Backup of config stuff.
 
 ## Shared agent config
 
-`AGENTS.md` and `skills/` are the tool-agnostic source of truth for coding-agent
-global instructions and skills (SKILL.md format). Tool-specific dirs point here:
+`agents/` is the tool-agnostic source of truth for coding-agent global
+instructions (`AGENTS.md`) and skills (`skills/`, SKILL.md format).
+Tool-specific dirs point here:
 
 ```
-this repo                      consumers
----------                      ---------
+agents/ in this repo    consumers
+--------------------    ---------
 AGENTS.md        <--- @import ------ claude/CLAUDE.md   (shim: import + Claude Code-specific bits)
                  <--- symlink ------ ~/.codex/AGENTS.md
 claude/CLAUDE.md <--- symlink ------ ~/.claude/CLAUDE.md

@@ -1,4 +1,4 @@
-@/Users/garymenezes/repositories/dotfiles/AGENTS.md
+@/Users/garymenezes/repositories/dotfiles/agents/AGENTS.md
 
 ## Claude Code specifics
 
