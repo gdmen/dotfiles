@@ -8,9 +8,10 @@ global instructions and skills (SKILL.md format). Tool-specific dirs point here:
 ```
 this repo                      consumers
 ---------                      ---------
-AGENTS.md  <--- @import ------ ~/.claude/CLAUDE.md   (shim: import + Claude Code-specific bits)
-           <--- symlink ------ ~/.codex/AGENTS.md
-skills/    <--- symlink ------ ~/.claude/skills
+AGENTS.md        <--- @import ------ claude/CLAUDE.md   (shim: import + Claude Code-specific bits)
+                 <--- symlink ------ ~/.codex/AGENTS.md
+claude/CLAUDE.md <--- symlink ------ ~/.claude/CLAUDE.md
+skills/          <--- symlink ------ ~/.claude/skills
 ```
 
 - Claude Code doesn't read AGENTS.md natively; `~/.claude/CLAUDE.md` imports it
