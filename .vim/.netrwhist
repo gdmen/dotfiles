@@ -1,3 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
-let g:netrw_dirhist_1='/Users/garymenezes/repositories/mathgame_2/internal/api/test_data'
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/Users/garymenezes/repositories/mathgame_2/cmd/compress_events'
+let g:netrw_dirhist_9='/Users/garymenezes/repositories/mathgame_2/server/generator'
+let g:netrw_dirhist_8='/Users/garymenezes/repositories/sspp-ai-survey-generation/ai_rag'
+let g:netrw_dirhist_7='/Users/garymenezes/repositories/sspp/leaderboard'
+let g:netrw_dirhist_6='/Users/garymenezes/Library/Mobile Documents/iCloud~md~obsidian/Documents/Vault/.obsidian.iphone'
+let g:netrw_dirhist_5='/Users/garymenezes/repositories/sspp/payments/migrations'
+let g:netrw_dirhist_4='/Users/garymenezes/repositories/mathgame_2/web'
+let g:netrw_dirhist_3='/Users/garymenezes/repositories/mathgame_2/server'
+let g:netrw_dirhist_2='/Users/garymenezes/repositories/mathgame_2/node_modules'
+let g:netrw_dirhist_1='/Users/garymenezes/repositories/mathgame_2/deploy'

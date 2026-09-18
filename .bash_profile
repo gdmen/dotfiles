@@ -6,6 +6,7 @@ export PATH
 export GOPATH=$(go env GOPATH)
 export PATH=$PATH:${GOPATH//://bin:}/bin
 export PATH="/usr/local/mysql/bin:$PATH"
+export PATH="~/.local/bin:$PATH"
 
 # OpenVPN
 
@@ -22,3 +23,7 @@ source /Users/garymenezes/.docker/init-bash.sh || true # Added by Docker Desktop
 # The original version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
 export PATH
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

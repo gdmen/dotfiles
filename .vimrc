@@ -1,4 +1,5 @@
 execute pathogen#infect()
+set regexpengine=0
 syntax on
 filetype plugin indent on
 
