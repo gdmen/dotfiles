@@ -66,3 +66,13 @@ Comment the non-obvious *why*, never the *what*. Keep them short, and **default 
 - **No comments about what the code does _not_ do.** No tombstones ("X was deleted in..."), no "replaces the old...", no explaining a feature's absence, no narrating work deferred elsewhere, no describing the slow version the change replaced. Describe behavior that exists.
 - **Match the surrounding style.** Short, one line. Don't write multi-line inline commentary explaining the bug being fixed or its history; that's the commit message. Over two lines is almost certainly too long.
 - Acceptable exceptions: migration comments documenting the schema change they themselves perform, and naming-contrast phrases about concepts rather than code.
+
+## Global skills
+
+When you add a global (user-level) skill, put it in `~/repositories/dotfiles/agents/skills/<name>/`, then link it for Codex:
+
+```bash
+ln -s ~/repositories/dotfiles/agents/skills/<name> ~/.agents/skills/<name>
+```
+
+Claude Code sees the skill through the `~/.claude/skills` symlink. Do not create global skills in `~/.codex/skills/` or as real directories in `~/.agents/skills/`.
