@@ -13,6 +13,7 @@ AGENTS.md        <--- @import ------ claude/CLAUDE.md   (shim: import + Claude C
                  <--- symlink ------ ~/.codex/AGENTS.md
 claude/CLAUDE.md <--- symlink ------ ~/.claude/CLAUDE.md
 skills/          <--- symlink ------ ~/.claude/skills
+skills/<name>/   <--- symlink ------ ~/.codex/skills/<name>   (per skill; ~/.codex/skills holds .system)
 ```
 
 - Claude Code doesn't read AGENTS.md natively; `~/.claude/CLAUDE.md` imports it
