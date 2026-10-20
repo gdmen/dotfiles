@@ -12,6 +12,7 @@ agents/ in this repo    consumers
 AGENTS.md        <--- @import ------ claude/CLAUDE.md   (shim: import + Claude Code-specific bits)
                  <--- symlink ------ ~/.codex/AGENTS.md
 claude/CLAUDE.md <--- symlink ------ ~/.claude/CLAUDE.md
+claude/settings.json <- symlink ---- ~/.claude/settings.json
 skills/          <--- symlink ------ ~/.claude/skills
 skills/<name>/   <--- symlink ------ ~/.agents/skills/<name>  (Codex; per skill, see below)
 ```
@@ -25,3 +26,5 @@ skills/<name>/   <--- symlink ------ ~/.agents/skills/<name>  (Codex; per skill,
   claude.ai account skills), which depend on Claude-only tools.
 - Keep tool-specific instructions out of `AGENTS.md`; they belong in each
   tool's shim file.
+- This repo is public. Keep secrets (API keys, tokens, `env` values) out of
+  `claude/settings.json`.

@@ -1,0 +1,10 @@
+{
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "outputStyle": "Concise",
+  "autoMemoryEnabled": false,
+  "theme": "dark",
+  "disableClaudeAiConnectors": true
+}
