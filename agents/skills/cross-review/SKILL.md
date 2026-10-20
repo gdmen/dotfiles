@@ -1,6 +1,6 @@
 ---
 name: cross-review
-description: Cross-model PR review. Claude spawns a GPT-6-Astra reviewer; an OpenAI model spawns a Claude Opus 5.5 reviewer. Each iteration starts a fresh reviewer, the two sessions debate its new findings to agreement, and the implementer fixes the simple issues. The loop stops when a fresh review finds no new major issue (max 3 iterations), then reports the rest to the user in STE. Use when the user asks for a cross-review or invokes /cross-review.
+description: Cross-model PR review. Claude spawns a GPT-6-Astra reviewer; an OpenAI model spawns a Claude Opus 5.5 reviewer. Each iteration starts a fresh reviewer, the two sessions debate its new findings to agreement, and the implementer fixes the simple issues. The loop stops after two consecutive iterations with no major or blocker fix (max 5 iterations), then reports the rest to the user in STE. Use when the user asks for a cross-review or invokes /cross-review.
 ---
 
 # Cross-review
@@ -10,12 +10,12 @@ Two senior engineers from different model vendors review one PR and agree on the
 ```
 implementer (you)                          reviewer (other vendor, new session per iteration)
 -----------------                          ---------------------------------------------------
-iteration k (k = 1..3):
+iteration k (k = 1..5):
   00-request.md (no ledger) -- peer.sh ->  fresh review: findings F1..Fn
   01-dedup.md (ledger)      -- peer.sh ->  map each F to NEW | I<n> | REOPEN I<n>
   round 1..3: assess        -- peer.sh ->  assess NEW and REOPEN issues   (stop rule below)
   fix agreed simple issues, commit
-  stop if no NEW or REOPEN issue is major or blocker
+  stop after two consecutive iterations with no major or blocker fix
 report to user
 ```
 
@@ -76,7 +76,7 @@ One round is one implementer turn plus one reviewer turn. Debate only the NEW an
 Stop the debate when one of these conditions is true:
 
 - 3 rounds are complete.
-- One full round finds no new `blocker` issue.
+- One full round changes no issue status.
 - All issues are `agreed` or `withdrawn`.
 
 ## Implementer procedure
@@ -93,7 +93,7 @@ Stop the debate when one of these conditions is true:
 
 2. Make a state directory and an empty ledger: `dir=$(mktemp -d -t cross-review); : >"$dir/ledger.md"`.
 
-3. Do iterations `k = 1, 2, 3`. Each iteration uses `$dir/i$k/`. A new directory makes `peer.sh` start a new reviewer session.
+3. Do iterations `k = 1, 2, 3, 4, 5`. Each iteration uses `$dir/i$k/`. A new directory makes `peer.sh` start a new reviewer session.
 
    1. Write `$dir/i$k/00-request.md` with:
       - This line: "You are the Reviewer in the protocol below. Do not spawn sessions. Do not edit files. Produce the fresh review."
@@ -121,10 +121,10 @@ Stop the debate when one of these conditions is true:
 
    6. Fix every `agreed` issue that has a `simple` solution. Run the project tests and linters. If there are changes, make one commit on top of the branch: "Address cross-review findings (iteration k)". Do not rewrite history. Do not push.
 
-   7. Stop the iterations if no NEW or REOPEN issue in this iteration is `major` or `blocker`. Otherwise, start the next iteration.
+   7. Stop the iterations after two consecutive iterations that fix no `major` or `blocker` issue. Otherwise, start the next iteration.
 
 4. Write the report to `$dir/report.md` and put the full report in your final message. Use STE. Sections:
-   - **Summary**: the number of iterations. Say "converged" if the last fresh review found no NEW or REOPEN `major` or `blocker` issue. Otherwise, say "not converged" and list the fixes that no fresh review has examined.
+   - **Summary**: the number of iterations. Say "converged" if the last two iterations fixed no `major` or `blocker` issue. Otherwise, say "not converged" and list the fixes that no fresh review has examined.
    - **Fixed**: one line per issue (ID, title, severity). Give the commit SHA.
    - **Needs your decision**: `agreed` issues with a `complex` solution.
    - **Unresolved**: `disputed` issues. Give both positions and your recommendation.
