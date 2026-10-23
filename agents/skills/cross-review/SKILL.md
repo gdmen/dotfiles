@@ -111,7 +111,7 @@ Stop the debate when one of these conditions is true:
       - Run it from the repository root.
       - Run it in the foreground with a tool timeout of 10 minutes. Do not use `run_in_background`, `sleep`, or Monitor.
       - `peer.sh` waits up to 9 minutes. Exit code 75 means that the reply is not ready. Run the same command again. It does not send the message again.
-      - Do not end your turn and do not do other work until the final report. Do not send progress messages to the user. Send only the final report or a `peer.sh` failure.
+      - You can do other work before you run it again. Do not end your turn until the final report. Do not send progress messages to the user. Send only the final report or a `peer.sh` failure.
       - The peer CLI needs network access. Run it outside the sandbox or request escalated permission.
       - The reply is in `$dir/i$k/<name>.reply.md`.
 
