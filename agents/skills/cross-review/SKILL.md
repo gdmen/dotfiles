@@ -109,7 +109,8 @@ Stop the debate when one of these conditions is true:
       ```
 
       - Run it from the repository root.
-      - One turn can take many minutes. Claude: use `run_in_background` and wait for the notification. Codex: set a timeout of 30 minutes or more.
+      - Claude: run it in the foreground with a tool timeout of 10 minutes. If Claude Code moves it to the background, wait for the notification. Codex: set a timeout of 30 minutes or more.
+      - Do not send progress messages to the user. When you wait for a reply, end your turn with no text. Send only the final report or a `peer.sh` failure.
       - The peer CLI needs network access. Run it outside the sandbox or request escalated permission.
       - The reply is in `$dir/i$k/<name>.reply.md`.
 
