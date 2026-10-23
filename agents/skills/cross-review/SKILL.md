@@ -109,8 +109,9 @@ Stop the debate when one of these conditions is true:
       ```
 
       - Run it from the repository root.
-      - Claude: run it in the foreground with a tool timeout of 10 minutes. If Claude Code moves it to the background, wait for the notification. Codex: set a timeout of 30 minutes or more.
-      - Do not send progress messages to the user. When you wait for a reply, end your turn with no text. Send only the final report or a `peer.sh` failure.
+      - Run it in the foreground with a tool timeout of 10 minutes. Do not use `run_in_background`, `sleep`, or Monitor.
+      - `peer.sh` waits up to 9 minutes. Exit code 75 means that the reply is not ready. Run the same command again. It does not send the message again.
+      - Do not end your turn and do not do other work until the final report. Do not send progress messages to the user. Send only the final report or a `peer.sh` failure.
       - The peer CLI needs network access. Run it outside the sandbox or request escalated permission.
       - The reply is in `$dir/i$k/<name>.reply.md`.
 
